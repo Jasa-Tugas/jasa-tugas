@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Jasa bantuan akademik dan umum: pendampingan tugas, presentasi, laprak, olah data, ketik dan perapihan dokumen.">
+  <meta name="theme-color" content="#0b4f8a">
+  <title>Jasa Pengerjaan Tugas | Akademik & Umum</title>
+
+  <style>
+    :root{
+      --blue-900:#073b68;
+      --blue-800:#0b4f8a;
+      --blue-700:#0969a8;
+      --blue-500:#12a6d8;
+      --blue-100:#e8f7fc;
+      --yellow:#f8bd18;
+      --orange:#f35b13;
+      --green:#1f9d62;
+      --green-dark:#087a49;
+      --text:#17212b;
+      --muted:#65717d;
+      --bg:#f7fafc;
+      --white:#fff;
+      --border:#e5ebf0;
+      --shadow:0 18px 45px rgba(13,52,82,.10);
+      --radius:24px;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      color:var(--text);
+      background:var(--bg);
+      line-height:1.6;
+    }
+    a{text-decoration:none;color:inherit}
+    img{display:block;max-width:100%}
+    button{font:inherit}
+
+    .container{width:min(1120px,92%);margin:auto}
+
+    /* NAVBAR */
+    .site-header{
+      position:sticky;
+      top:0;
+      z-index:1000;
+      background:rgba(255,255,255,.92);
+      backdrop-filter:blur(14px);
+      border-bottom:1px solid rgba(229,235,240,.85);
+    }
+    .nav-wrap{
+      min-height:76px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+    }
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand-mark{
+      width:44px;height:44px;border-radius:13px;
+      display:grid;place-items:center;
+      background:linear-gradient(135deg,var(--blue-800),var(--blue-500));
+      color:#fff;font-weight:900;
+      box-shadow:0 8px 20px rgba(11,79,138,.2);
+    }
+    .brand strong{display:block;font-size:16px}
+    .brand small{display:block;color:var(--muted);font-size:12px}
+    .nav{display:flex;align-items:center;gap:28px}
+    .nav a{font-size:14px;font-weight:700;color:#4a5965}
+    .nav a:hover{color:var(--blue-800)}
+    .nav-cta{
+      padding:11px 17px;border-radius:999px;
+      background:var(--blue-800);color:#fff!important;
+      box-shadow:0 8px 20px rgba(11,79,138,.18);
+    }
+    .nav-toggle{
+      display:none;border:0;background:transparent;
+      font-size:28px;cursor:pointer;color:var(--blue-800);
+    }
+
+    /* HERO */
+    .hero{
+      position:relative;
+      overflow:hidden;
+      background:
+        radial-gradient(circle at 90% 10%,rgba(18,166,216,.14),transparent 28%),
+        radial-gradient(circle at 5% 80%,rgba(248,189,24,.10),transparent 25%),
+        #fff;
+      padding:72px 0 82px;
+    }
+    .hero:before{
+      content:"";
+      position:absolute;inset:0;
+      background-image:
+        linear-gradient(rgba(11,79,138,.035) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(11,79,138,.035) 1px,transparent 1px);
+      background-size:32px 32px;
+      pointer-events:none;
+    }
+    .hero-grid{
+      position:relative;
+      display:grid;
+      grid-template-columns:1fr .85fr;
+      align-items:center;
+      gap:58px;
+    }
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      color:var(--blue-800);
+      font-size:12px;
+      font-weight:900;
+      letter-spacing:1.5px;
+      margin-bottom:12px;
+    }
+    .eyebrow:before{
+      content:"";
+      width:25px;height:3px;border-radius:99px;background:var(--orange);
+    }
+    h1{
+      font-size:clamp(42px,5.2vw,70px);
+      line-height:1.02;
+      letter-spacing:-2.8px;
+      max-width:720px;
+      margin-bottom:22px;
+    }
+    h1 span{
+      display:block;
+      color:var(--orange);
+    }
+    .hero-text{
+      max-width:650px;
+      color:var(--muted);
+      font-size:17px;
+      margin-bottom:30px;
+    }
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:50px;
+      padding:0 20px;
+      border-radius:14px;
+      font-weight:850;
+      transition:.2s ease;
+    }
+    .btn:hover{transform:translateY(-2px)}
+    .btn-primary{
+      background:var(--blue-800);color:#fff;
+      box-shadow:0 12px 24px rgba(11,79,138,.22);
+    }
+    .btn-secondary{
+      background:#fff;color:var(--blue-800);
+      border:1px solid var(--border);
+    }
+    .trust-row{
+      display:flex;gap:26px;margin-top:32px;flex-wrap:wrap;
+    }
+    .trust-row div{display:flex;flex-direction:column}
+    .trust-row strong{font-size:17px;color:var(--blue-800)}
+    .trust-row span{font-size:12px;color:var(--muted)}
+
+    .hero-visual{position:relative}
+    .poster-frame{
+      position:relative;
+      background:#fff;
+      padding:9px;
+      border-radius:28px;
+      box-shadow:var(--shadow);
+      transform:rotate(1deg);
+    }
+    .poster-frame img{
+      width:100%;
+      border-radius:20px;
+      max-height:680px;
+      object-fit:cover;
+      object-position:top;
+    }
+    .floating-card{
+      position:absolute;
+      z-index:2;
+      display:flex;flex-direction:column;
+      background:#fff;
+      padding:13px 16px;
+      border-radius:16px;
+      box-shadow:0 15px 35px rgba(20,48,72,.14);
+      font-size:12px;
+    }
+    .floating-card strong{font-size:13px}
+    .floating-card span{color:var(--muted)}
+    .floating-card-top{top:7%;left:-38px}
+    .floating-card-bottom{bottom:7%;right:-34px}
+
+    /* SECTIONS */
+    .section{padding:92px 0}
+    .section-soft{background:#eef7fb}
+    .section-head{
+      display:flex;
+      justify-content:space-between;
+      align-items:end;
+      gap:30px;
+      margin-bottom:38px;
+    }
+    .section-head.center{display:block;text-align:center}
+    h2{
+      font-size:clamp(30px,4vw,45px);
+      line-height:1.1;
+      letter-spacing:-1.5px;
+    }
+    .section-head>p{
+      max-width:490px;color:var(--muted);font-size:15px;
+    }
+    .center>p{margin:12px auto 0}
+
+    /* SERVICES */
+    .service-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:17px;
+    }
+    .service-card{
+      position:relative;
+      overflow:hidden;
+      min-height:320px;
+      padding:27px;
+      border-radius:var(--radius);
+      color:#fff;
+      box-shadow:0 15px 35px rgba(20,48,72,.10);
+      transition:.25s ease;
+    }
+    .service-card:hover{transform:translateY(-6px)}
+    .service-card:after{
+      content:"";
+      position:absolute;
+      width:120px;height:120px;
+      border:25px solid rgba(255,255,255,.09);
+      border-radius:50%;
+      right:-55px;top:-50px;
+    }
+    .service-card.blue{background:linear-gradient(145deg,#0b74b6,#07558f)}
+    .service-card.yellow{background:linear-gradient(145deg,#ffc91f,#eea900)}
+    .service-card.orange{background:linear-gradient(145deg,#f97821,#e8470b)}
+    .service-card.green{background:linear-gradient(145deg,#36ba7b,#13844e)}
+    .service-number{font-size:12px;font-weight:900;opacity:.8}
+    .icon{font-size:40px;margin:28px 0 17px}
+    .service-card h3{font-size:21px;margin-bottom:10px}
+    .service-card p{font-size:13px;line-height:1.65;opacity:.92}
+    .service-card a{
+      position:absolute;left:27px;bottom:24px;
+      font-weight:900;font-size:13px;
+    }
+
+    /* FEATURES */
+    .feature-grid{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:70px;
+      align-items:center;
+    }
+    .lead{color:var(--muted);margin:18px 0 28px;max-width:680px}
+    .feature-list{display:grid;gap:14px}
+    .feature-item{
+      display:flex;gap:13px;align-items:flex-start;
+      padding:15px 0;
+      border-bottom:1px solid rgba(11,79,138,.09);
+    }
+    .feature-item>span{
+      flex:0 0 27px;height:27px;border-radius:50%;
+      display:grid;place-items:center;
+      background:#dff5e9;color:var(--green-dark);font-weight:900;
+    }
+    .feature-item strong{display:block}
+    .feature-item p{font-size:13px;color:var(--muted);margin-top:2px}
+    .stats-card{
+      background:linear-gradient(145deg,#083e6b,#0b6da3);
+      color:#fff;border-radius:28px;padding:30px;
+      box-shadow:var(--shadow);
+    }
+    .stats-top{display:flex;justify-content:space-between;align-items:center}
+    .pill{
+      padding:6px 10px;border-radius:999px;
+      background:rgba(255,255,255,.13);
+      font-size:10px;font-weight:900;letter-spacing:1px;
+    }
+    .dots{letter-spacing:4px;opacity:.5}
+    .big-stat{font-size:110px;line-height:.9;font-weight:950;margin-top:45px}
+    .stat-title{opacity:.8}
+    .mini-stats{
+      display:grid;grid-template-columns:1fr 1fr;
+      gap:10px;margin-top:35px;
+    }
+    .mini-stats div{
+      padding:14px;border-radius:15px;
+      background:rgba(255,255,255,.1);
+    }
+    .mini-stats strong{display:block;font-size:13px}
+    .mini-stats span{font-size:11px;opacity:.7}
+
+    /* STEPS */
+    .steps{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:14px;
+    }
+    .step{
+      position:relative;
+      padding:30px 24px;
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:22px;
+      box-shadow:0 8px 24px rgba(13,52,82,.05);
+    }
+    .step>span{
+      width:45px;height:45px;border-radius:13px;
+      display:grid;place-items:center;
+      background:var(--blue-800);color:#fff;
+      font-weight:900;margin-bottom:22px;
+    }
+    .step h3{font-size:18px;margin-bottom:8px}
+    .step p{font-size:13px;color:var(--muted)}
+
+    /* CTA */
+    .cta-section{
+      padding:68px 0;
+      background:linear-gradient(110deg,#073b68,#0b78b5);
+      color:#fff;
+    }
+    .cta-inner{
+      display:flex;align-items:center;
+      justify-content:space-between;gap:30px;
+    }
+    .eyebrow.light{color:#dff6ff}
+    .cta-inner h2{max-width:650px}
+    .cta-inner p{opacity:.78;margin-top:10px}
+    .btn-light{
+      flex:0 0 auto;background:#fff;color:var(--blue-800);
+      min-width:210px;
+    }
+
+    /* FAQ */
+    .faq-wrap{max-width:900px}
+    .faq-list{display:grid;gap:12px}
+    details{
+      background:#fff;border:1px solid var(--border);
+      border-radius:17px;padding:18px 20px;
+    }
+    summary{
+      cursor:pointer;list-style:none;
+      font-weight:800;padding-right:20px;position:relative;
+    }
+    summary::-webkit-details-marker{display:none}
+    summary:after{
+      content:"+";position:absolute;right:0;
+      color:var(--blue-800);font-size:22px;top:-4px;
+    }
+    details[open] summary:after{content:"−"}
+    details p{color:var(--muted);font-size:14px;padding-top:12px}
+
+    /* FOOTER */
+    .footer{background:#092e4f;color:#fff;padding:35px 0}
+    .footer-inner{
+      display:flex;justify-content:space-between;
+      gap:30px;align-items:center;
+    }
+    .footer p{opacity:.65;font-size:13px;margin-top:4px}
+    .footer-right{
+      display:flex;flex-direction:column;
+      align-items:flex-end;gap:5px;font-size:13px;
+    }
+    .footer-right a{color:#8ee0ff;font-weight:800}
+    .footer-right span{opacity:.6}
+
+    /* FLOATING WA */
+    .wa-float{
+      position:fixed;
+      z-index:1100;
+      right:22px;bottom:22px;
+      width:58px;height:58px;border-radius:50%;
+      display:grid;place-items:center;
+      background:#19b965;color:#fff;
+      box-shadow:0 14px 30px rgba(0,0,0,.2);
+      font-size:26px;
+      transition:.2s ease;
+    }
+    .wa-float:hover{transform:scale(1.06)}
+
+    /* RESPONSIVE */
+    @media(max-width:980px){
+      .hero-grid{grid-template-columns:1fr;gap:45px}
+      .hero-copy{text-align:center;width:100%}
+      .hero-copy h1{width:100%;text-align:center;margin-left:auto;margin-right:auto}
+      .hero-copy h1 span{width:100%;text-align:center}
+      .hero-copy .eyebrow{justify-content:center}
+      .hero-text{margin-left:auto;margin-right:auto}
+      .hero-actions{justify-content:center}
+      .trust-row{justify-content:center}
+      .hero-visual{width:min(600px,100%);margin:auto}
+      .service-grid{grid-template-columns:1fr 1fr}
+      .feature-grid{grid-template-columns:1fr;gap:40px}
+      .steps{grid-template-columns:1fr 1fr}
+      .floating-card-top{left:-10px}
+      .floating-card-bottom{right:-10px}
+    }
+
+    @media(max-width:720px){
+      .nav-toggle{display:block}
+      .nav{
+        position:absolute;top:76px;left:4%;right:4%;
+        display:none;flex-direction:column;align-items:stretch;
+        padding:14px;background:#fff;
+        border:1px solid var(--border);
+        border-radius:18px;
+        box-shadow:var(--shadow);
+      }
+      .nav.open{display:flex}
+      .nav a{padding:10px 12px}
+      .nav-cta{text-align:center}
+      .hero{padding:52px 0 65px}
+      h1{letter-spacing:-1.4px;text-align:center}
+      h1 span{width:100%;text-align:center}
+      .section{padding:70px 0}
+      .section-head{display:block}
+      .section-head>p{margin-top:12px}
+      .service-grid,.steps{grid-template-columns:1fr}
+      .service-card{min-height:285px}
+      .cta-inner{display:block;text-align:center}
+      .cta-inner h2{margin:auto}
+      .btn-light{margin-top:25px}
+      .footer-inner{display:block;text-align:center}
+      .footer-right{align-items:center;margin-top:20px}
+      .floating-card{display:none}
+    }
+
+    @media(max-width:450px){
+      .brand small{display:none}
+      .hero-actions .btn{width:100%}
+      .trust-row{gap:18px}
+      .poster-frame{padding:5px;border-radius:20px}
+      .poster-frame img{border-radius:15px}
+      .mini-stats{grid-template-columns:1fr}
+    }
+
+    @media(prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+      *,*:before,*:after{transition:none!important}
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header" id="beranda">
+    <div class="container nav-wrap">
+      <a class="brand" href="#beranda" aria-label="Jasa Pengerjaan Tugas">
+        <span class="brand-mark">JT</span>
+        <span>
+          <strong>Jasa Tugas</strong>
+          <small>Akademik & Umum</small>
+        </span>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Buka menu" aria-expanded="false">☰</button>
+
+      <nav class="nav" id="navMenu" aria-label="Navigasi utama">
+        <a href="#layanan">Layanan</a>
+        <a href="#keunggulan">Keunggulan</a>
+        <a href="#proses">Cara Kerja</a>
+        <a href="#faq">FAQ</a>
+        <a class="nav-cta" href="https://wa.me/6288272064379?text=Halo%2C%20saya%20ingin%20konsultasi%20jasa%20tugas." target="_blank" rel="noopener">Chat WhatsApp</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-grid container">
+        <div class="hero-copy">
+          <div class="eyebrow">SOLUSI TEPAT UNTUK TUGAS ANDA</div>
+          <h1>Jasa Pengerjaan Tugas <span>Akademik & Umum</span></h1>
+          <p class="hero-text">
+            Bantuan akademik dan pekerjaan dokumen yang rapi, cepat, dan terstruktur.
+            Konsultasikan kebutuhan, format, dan deadline Anda terlebih dahulu.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://wa.me/6288272064379?text=Halo%2C%20saya%20ingin%20konsultasi%20jasa%20tugas." target="_blank" rel="noopener">
+              💬 Pesan Sekarang
+            </a>
+            <a class="btn btn-secondary" href="#layanan">Lihat Layanan</a>
+          </div>
+
+          <div class="trust-row">
+            <div><strong>Respons Cepat</strong><span>Chat & konsultasi</span></div>
+            <div><strong>Revisi</strong><span>Sesuai kesepakatan</span></div>
+            <div><strong>Privat</strong><span>Data pelanggan dijaga</span></div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="floating-card floating-card-top">
+            ⚡ <strong>Fast Response</strong><span>Chat & konsultasi</span>
+          </div>
+
+          <div class="poster-frame">
+            <img src="https://raw.githubusercontent.com/jsptrtf2/jasa-pengerjaan-tugas/main/assets/poster-jasa.png"
+                 alt="Poster jasa pengerjaan tugas akademik dan umum"
+                 onerror="this.style.display='none'">
+          </div>
+
+          <div class="floating-card floating-card-bottom">
+            ✅ <strong>Siap Dibantu</strong><span>Akademik & umum</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="layanan">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">LAYANAN</div>
+            <h2>Pilih kebutuhan Anda</h2>
+          </div>
+          <p>
+            Empat kategori layanan utama untuk membantu pekerjaan akademik,
+            presentasi, data, dan dokumen Anda.
+          </p>
+        </div>
+
+        <div class="service-grid">
+          <article class="service-card blue">
+            <div class="service-number">01</div>
+            <div class="icon">📘</div>
+            <h3>Jasa Tugas</h3>
+            <p>Tugas kuliah, essay, makalah, ringkasan, pekerjaan rumah, dan bantuan penyusunan dokumen akademik.</p>
+            <a href="https://wa.me/6288272064379?text=Halo%2C%20saya%20ingin%20konsultasi%20Jasa%20Tugas." target="_blank" rel="noopener">Konsultasi →</a>
+          </article>
+
+          <article class="service-card yellow">
+            <div class="service-number">02</div>
+            <div class="icon">🎤</div>
+            <h3>PPT & Presentasi</h3>
+            <p>Desain slide, perapihan materi, persiapan KP, seminar, sidang, dan presentasi akademik.</p>
+            <a href="https://wa.me/6288272064379?text=Halo%2C%20saya%20ingin%20konsultasi%20PPT%20dan%20Presentasi." target="_blank" rel="noopener">Konsultasi →</a>
+          </article>
+
+          <article class="service-card orange">
+            <div class="service-number">03</div>
+            <div class="icon">📊</div>
+            <h3>Laprak & Olah Data</h3>
+            <p>Laporan praktikum, tabel, grafik, pengolahan data, statistik dasar, dan pendampingan analisis.</p>
+            <a href="https://wa.me/6288272064379?text=Halo%2C%20saya%20ingin%20konsultasi%20Laprak%20dan%20Olah%20Data." target="_blank" rel="noopener">Konsultasi →</a>
+          </article>
+
+          <article class="service-card green">
+            <div class="service-number">04</div>
+            <div class="icon">⌨️</div>
+            <h3>Jasa Ketik & Tulis</h3>
+            <p>Ketik dokumen, digitalisasi tulisan tangan, perapihan format, dan penataan dokumen.</p>
+            <a href="https://wa.me/6288272064379?text=Halo%2C%20saya%20ingin%20konsultasi%20Jasa%20Ketik%20dan%20Tulis." target="_blank" rel="noopener">Konsultasi →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="keunggulan">
+      <div class="container feature-grid">
+        <div>
+          <div class="eyebrow">KENAPA MEMILIH KAMI</div>
+          <h2>Fokus pada hasil yang rapi dan tepat waktu.</h2>
+          <p class="lead">
+            Komunikasi dilakukan sejak awal agar kebutuhan, format, deadline,
+            harga, dan revisi dapat disepakati dengan jelas.
+          </p>
+
+          <div class="feature-list">
+            <div class="feature-item">
+              <span>✓</span>
+              <div><strong>Brief jelas</strong><p>Menyesuaikan kebutuhan dan format yang diberikan.</p></div>
+            </div>
+            <div class="feature-item">
+              <span>✓</span>
+              <div><strong>Deadline terukur</strong><p>Estimasi pengerjaan dibahas sebelum pekerjaan dimulai.</p></div>
+            </div>
+            <div class="feature-item">
+              <span>✓</span>
+              <div><strong>Revisi sesuai kesepakatan</strong><p>Perbaikan mengikuti brief dan kesepakatan awal.</p></div>
+            </div>
+            <div class="feature-item">
+              <span>✓</span>
+              <div><strong>Privasi terjaga</strong><p>File dan informasi pelanggan tidak dipublikasikan.</p></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="stats-card">
+          <div class="stats-top">
+            <span class="pill">PROFESIONAL</span>
+            <span class="dots">•••</span>
+          </div>
+          <div class="big-stat">4</div>
+          <p class="stat-title">Kategori layanan utama</p>
+
+          <div class="mini-stats">
+            <div><strong>Akademik</strong><span>Tugas & presentasi</span></div>
+            <div><strong>Data</strong><span>Laprak & statistik</span></div>
+            <div><strong>Dokumen</strong><span>Ketik & perapihan</span></div>
+            <div><strong>Support</strong><span>Chat WhatsApp</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="proses">
+      <div class="container">
+        <div class="section-head center">
+          <div>
+            <div class="eyebrow">CARA KERJA</div>
+            <h2>Semudah 4 langkah</h2>
+          </div>
+          <p>Proses dibuat sederhana supaya Anda dapat menjelaskan kebutuhan dengan mudah.</p>
+        </div>
+
+        <div class="steps">
+          <div class="step">
+            <span>1</span>
+            <h3>Kirim Brief</h3>
+            <p>Kirim instruksi, file, contoh format, dan deadline.</p>
+          </div>
+          <div class="step">
+            <span>2</span>
+            <h3>Konfirmasi</h3>
+            <p>Kebutuhan, harga, estimasi waktu, dan revisi dibahas terlebih dahulu.</p>
+          </div>
+          <div class="step">
+            <span>3</span>
+            <h3>Pengerjaan</h3>
+            <p>Pekerjaan dilakukan sesuai detail yang telah disepakati.</p>
+          </div>
+          <div class="step">
+            <span>4</span>
+            <h3>Review & Revisi</h3>
+            <p>Hasil diperiksa dan diperbaiki sesuai kesepakatan.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container cta-inner">
+        <div>
+          <div class="eyebrow light">BUTUH DIBANTU SEKARANG?</div>
+          <h2>Kirim tugas Anda, kita bahas kebutuhannya.</h2>
+          <p>Chat WhatsApp untuk cek harga, estimasi pengerjaan, dan ketersediaan.</p>
+        </div>
+
+        <a class="btn btn-light" href="https://wa.me/6288272064379?text=Halo%2C%20saya%20ingin%20konsultasi%20tentang%20tugas%20saya." target="_blank" rel="noopener">
+          💬 0882-7206-4379
+        </a>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="container faq-wrap">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">FAQ</div>
+            <h2>Pertanyaan yang sering ditanyakan</h2>
+          </div>
+        </div>
+
+        <div class="faq-list">
+          <details open>
+            <summary>Bagaimana cara memesan?</summary>
+            <p>Klik tombol WhatsApp, kirim jenis kebutuhan, jumlah halaman/file, deadline, dan contoh format bila ada. Detail pekerjaan dibahas terlebih dahulu.</p>
+          </details>
+
+          <details>
+            <summary>Apakah bisa revisi?</summary>
+            <p>Bisa, selama masih sesuai dengan brief dan jumlah revisi yang telah disepakati saat konfirmasi.</p>
+          </details>
+
+          <details>
+            <summary>Apakah bisa mengerjakan file Excel atau data?</summary>
+            <p>Bisa untuk pengolahan, perapihan, tabel, grafik, dan pendampingan analisis data sesuai kebutuhan yang disepakati.</p>
+          </details>
+
+          <details>
+            <summary>Berapa lama pengerjaannya?</summary>
+            <p>Menyesuaikan tingkat kesulitan, volume pekerjaan, dan deadline. Estimasi diberikan setelah kebutuhan diperiksa.</p>
+          </details>
+
+          <details>
+            <summary>Apakah layanan ini dapat digunakan untuk menggantikan pekerjaan individu?</summary>
+            <p>Layanan sebaiknya digunakan sebagai bantuan, pendampingan, formatting, pengolahan data, atau dukungan belajar. Pastikan penggunaan hasil tetap mengikuti aturan akademik dari kampus atau sekolah Anda.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>Jasa Tugas — Akademik & Umum</strong>
+        <p>Cepat • Akurat • Berkualitas</p>
+      </div>
+
+      <div class="footer-right">
+        <a href="https://wa.me/6288272064379" target="_blank" rel="noopener">WhatsApp: 0882-7206-4379</a>
+        <span>© <span id="year"></span> Jasa Tugas</span>
+      </div>
+    </div>
+  </footer>
+
+  <a class="wa-float"
+     href="https://wa.me/6288272064379?text=Halo%2C%20saya%20ingin%20konsultasi%20jasa%20tugas."
+     target="_blank"
+     rel="noopener"
+     aria-label="Chat WhatsApp">
+    💬
+  </a>
+
+  <script>
+    const navToggle = document.getElementById("navToggle");
+    const navMenu = document.getElementById("navMenu");
+
+    navToggle.addEventListener("click", () => {
+      const isOpen = navMenu.classList.toggle("open");
+      navToggle.setAttribute("aria-expanded", isOpen);
+      navToggle.textContent = isOpen ? "✕" : "☰";
+    });
+
+    document.querySelectorAll(".nav a").forEach(link => {
+      link.addEventListener("click", () => {
+        navMenu.classList.remove("open");
+        navToggle.setAttribute("aria-expanded", "false");
+        navToggle.textContent = "☰";
+      });
+    });
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Animasi sederhana saat elemen masuk viewport
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.style.opacity = "1";
+          entry.target.style.transform = "translateY(0)";
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {threshold: 0.08});
+
+    document.querySelectorAll(".service-card, .step, .feature-item, .stats-card").forEach(el => {
+      el.style.opacity = "0";
+      el.style.transform = "translateY(18px)";
+      el.style.transition = "opacity .55s ease, transform .55s ease";
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>
